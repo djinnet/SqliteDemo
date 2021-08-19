@@ -1,14 +1,14 @@
 # SqliteDemo
 This is used as an demo for showing how to use sqlite for .net 5 solution with webapi and blazor. This is intended to showcase my skills on basic setup.
 
-==WebApi==
+## WebApi
 This is an .net 5 webapi or known as backend. This is the only place where dept web api comes from. 
 People can use different api to apply within the controller, but for this case I am just using entity framework core to do talking with sqlite.
 
-==WebApp==
+## WebApp
 This is blazor in .net 5. This is the UI or the frontend of the website. This is also an PWA, so it can be used for mobile devices or desktop offline installation.
 
-==Library==
+## Library
 Both project shared the same library. Why? Because the library contains models and DAL (data access layer). Webapp only need to know models and WebAPI need to know models and DAL.
 To make it easier for maintaining, that is the primary reason to why both are shared the same library.
 
