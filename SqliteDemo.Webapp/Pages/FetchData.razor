@@ -1,0 +1,42 @@
+﻿@page "/fetchdata"
+@inject HttpClient Http
+
+<h1>Show all depts within the company</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (depts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Dept id</th>
+                <th>Dept Name</th>
+                <th>Location of the dept</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dept in depts)
+            {
+                <tr>
+                    <td>@dept.deptid</td>
+                    <td>@dept.dname</td>
+                    <td>@dept.location</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Depts[] depts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        depts = await Http.GetFromJsonAsync<Depts[]>("https://localhost:44326/api/Depts");
+    }
+}
